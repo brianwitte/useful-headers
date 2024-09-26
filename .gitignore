@@ -1,0 +1,59 @@
+# Ignore compiled binaries and object files
+bin/
+*.o
+*.obj
+*.exe
+*.out
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+
+# Ignore build directories
+/build/
+dist/
+test/bin/
+
+# Ignore debug files
+*.log
+*.trace
+*.gdb
+*.dSYM/
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+*.tags
+*.bak
+*.tmp
+
+# Ignore coverage and test reports
+*.gcda
+*.gcno
+*.gcov
+coverage/
+test/test-results/
+*.test
+*.xml
+*.junit.xml
+
+# Ignore backup files
+*~
+*.backup
+
+# Ignore generated documentation
+docs/generated/
+
+# Ignore config files and secrets (if any)
+.env
+*.local
+
+# Ignore CMake and Makefile build artifacts
+CMakeFiles/
+CMakeCache.txt
+Makefile.in
+Makefile~
