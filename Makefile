@@ -5,21 +5,23 @@ SRC_DIR = .
 TEST_DIR = test
 BIN_DIR = $(TEST_DIR)/bin
 
-# Explicit source and header files
+# Source and header files
 LIB_HEADERS = $(SRC_DIR)/bstr.h $(SRC_DIR)/uptest.h
 TEST_SOURCES = $(TEST_DIR)/test_bstr.c
 TEST_BINARIES = $(BIN_DIR)/test_bstr
 
+# Default target: Ensure the test binary is built
 all: $(BIN_DIR) $(TEST_BINARIES)
 
+# Ensure the bin directory exists
 $(BIN_DIR):
 	@mkdir -p $(BIN_DIR)
 
-# Explicit rule for building each test binary (no wildcards)
+# Build test binaries explicitly, no wildcards
 $(BIN_DIR)/test_bstr: $(TEST_DIR)/test_bstr.c $(LIB_HEADERS)
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
-test: $(TEST_BINARIES)
+test: all
 	$(BIN_DIR)/test_bstr
 
 clean:
@@ -39,9 +41,9 @@ help:
 	@echo ""
 	@echo "Available targets:"
 	@echo "  all       - Build the test binaries."
-	@echo "  test      - Run the unit tests."
+	@echo "  test      - Build and run the unit tests."
 	@echo "  clean     - Clean the build artifacts."
-	@echo "  zen       - Display the guiding principles (Makefile Zen)."
+	@echo "  zen       - Display the Makefile Zen principles."
 	@echo "  help      - Display this help message."
 
 .PHONY: all clean test zen help
